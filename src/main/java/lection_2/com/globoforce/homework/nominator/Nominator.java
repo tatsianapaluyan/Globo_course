@@ -21,7 +21,6 @@ public class Nominator {
                 + currency + " By Nominator: " + name);
 
         nominee.recieveAward(award);
-
     }
 
     // Nominate multiple recipients

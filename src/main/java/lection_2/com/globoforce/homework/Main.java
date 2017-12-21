@@ -27,36 +27,30 @@ public class Main {
         recipients.add(nominee1);
         recipients.add(nominee2);
 
-//        nominator.nominate(recipients, award);
-        nominator.nominate(nominee, award);
+        //        nominator.nominate(recipients, award);
+
+        System.out.println("Award values for the Nominees without Soli");
         nominator.nominate(nominee, award2);
-        nominator.nominate(nominee1, award);
-        nominator.nominate(nominee1, award2);
-        nominator.nominate(nominee2, award1);
+        nominator.nominate(nominee1, award1);
         nominator.nominate(nominee2, award);
 
+        System.out.println("Award values for the Nominees with Soli");
+        double first = nominee.recalculation(award1);
+        double second = nominee1.recalculation(award2);
+        double third = nominee2.recalculation(award);
 
-        double a1 = nominee.recalculation(award);
-        double a2 = nominee.recalculation(award1);
-        double a3 = nominee.recalculation(award2);
-        double a4 = nominee1.recalculation(award);
-        double a5 = nominee2.recalculation(award2);
+        System.out.println(first);
+        System.out.println(second);
+        System.out.println(third);
 
-        System.out.println("testpn");
-
-
-        System.out.println(a1);
-        System.out.println(a2);
-        System.out.println(a3);
-        System.out.println(a4);
-        System.out.println(a5);
-
-        if (a1>a2) {
-            System.out.println( nominee.getName() + ": a1=" + a1 + "is greated than a2=" + a2);
+        if (first > second) {
+            System.out.println(nominee.getName() + ": a1=" + first + " is greater than a2=" + second);
         }
-
-        if (a1>a2 && a1>a3) {
-            System.out.println( nominee.getName() + ": a1=" + a1 + "is greated than a2=" + a2 +  " and greater than a3=" + a3);
+        if (first > second && first > third) {
+            System.out.println(nominee.getName() + ": a1=" + first + " is greater than a2=" + second + " and greater than a3=" + third);
+        }
+        if (first >= second || first <= third) {
+            System.out.println(nominee.getName() + ": a1=" + first + " is greated than a2=" + second + " and greater than a3=" + third);
         }
 
     }

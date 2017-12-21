@@ -15,10 +15,11 @@ public class Nominee {
 
     public void recieveAward(Award award) {
         if (award.getSoli() >= 0) {
-            System.out.println("значение соли которое было использовано " + award.getSoli() + " ; " + "пересчет аварды " + award.getValue() * award.getSoli());
-            System.out.println("потеряное количество от первоначальной аварды " + (award.getValue() - (award.getSoli() * award.getValue()) / award.getValue() * 100 + " %"));
+            double v = award.getSoli() * award.getValue();
+            System.out.println("Soli value = " + award.getSoli() + " ; " + "Recalculation of the award with Soli =  " + v);
+            System.out.println("Decreased amount = " + (v / award.getValue() * 100 + " %"));
         } else {
-            System.out.println("Значение аварды " + award.getValue());
+            System.out.println(" Origin value of the Award " + award.getValue());
         }
 ///    return award.getValue();
     }
@@ -27,27 +28,23 @@ public class Nominee {
         return name;
     }
 
-    // пересчет авард с соли
+    // Recalculation of the Award value by formula
     public double recalculation(Award award) {
-        double C = 1.2;//random.nextDouble();
-        int Z = 2;//random.nextInt();
-        int population = 3;
-        int P = award.getValue();
-        System.out.println(C + ":" + Z + ":" + population + ":" + P);
+        double C = random.nextDouble();
+        double Z = random.nextInt();
+        double population = 3;
+        double P = award.getValue();
+//        System.out.println(C + ":" + Z + ":" + population + ":" + P);
         //result = (((Math.pow(Z,2))*(P)*(1-P))/(Math.pow(C,2)))/(1+(((((Math.pow(Z,2))*(P)*(1-P))/(Math.pow(C,2)))-1)/population));
 
-
-        double a = Math.pow(Z, 2) * P * (1 - P);
+        double a = Math.pow(Z, 2) * P * (1.0 - P);
         double b = a / (Math.pow(C, 2));
-        double c = (b - 1) / population;
-        result = b / (1 + c);
+        double c = (b - 1.0) / population;
+        result = b / (1.0 + c);
         System.out.println(result);
         return result;
 
-
     }
-
-
 }
 
 
