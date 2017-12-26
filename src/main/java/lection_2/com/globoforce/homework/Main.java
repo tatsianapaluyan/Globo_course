@@ -15,12 +15,14 @@ public class Main {
 
         Nominee nominee = new Nominee("Tanya");
         Nominee nominee1 = new Nominee("Yura");
-        Nominee nominee2 = new Nominee("Sasha");
+        Nominee nominee2 = new Nominee("Pasha");
 
+       Nominee nominee3 = new Nominee("BOB", 5,2000);
 
         nominee.recieveAward(award);
 
         Nominator nominator = new Nominator("Liam", "EUR");
+        Nominator nominator1 = new Nominator("Jonathan",5,500);
 
         List<Nominee> recipients = new ArrayList<Nominee>();
         recipients.add(nominee);
@@ -33,6 +35,12 @@ public class Main {
         nominator.nominate(nominee, award2);
         nominator.nominate(nominee1, award1);
         nominator.nominate(nominee2, award);
+
+
+//        nominator1.maxNumberforNominator(nominee3, award2);
+//        nominator1.maxAmountForNominator(nominee3, award);
+//        nominator1.maxNumberForNominee(nominee3, award);
+ //nominator1.maxAmountForNominee(nominee3,award);
 
         System.out.println("Award values for the Nominees with Soli");
         double first = nominee.recalculation(award1);
@@ -53,6 +61,37 @@ public class Main {
             System.out.println(nominee.getName() + ": a1=" + first + " is greated than a2=" + second + " and greater than a3=" + third);
         }
 
+
+        for (int i = 0; i < 6; i++) {
+            switch (i) {
+            case 1:
+                System.out.println("FIRST NOMINATION");
+                nominator1.maxNumberforNominator(nominee, award2);
+                break;
+            case 2:
+                System.out.println("SECOND NOMINATION");
+                nominator1.maxAmountForNominator(nominee1, award);
+                break;
+            case 3:
+                System.out.println("THIRD NOMINATION");
+                nominator1.maxNumberForNominee(nominee2, award);
+
+                break;
+            case 4:
+                System.out.println("FOURTH NOMINATION");
+                nominator1.maxAmountForNominee(nominee3, award1);
+
+                break;
+            default:
+            System.out.println("Invalid Choice .. Try Again.");
+       }
+        }
+
+
+
     }
+
+
+
 }
 

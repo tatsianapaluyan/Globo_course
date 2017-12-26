@@ -8,9 +8,18 @@ public class Nominee {
     private String name;
     final Random random = new Random();
     double result;
+    int nomineeAwardQuantityLimit;
+    double nomineeMaxAwardValue;
+
 
     public Nominee(String name) {
         this.name = name;
+    }
+
+    public Nominee(String name, int nomineeAwardQuantityLimit, double nomineeMaxAwardValue) {
+        this.name = name;
+        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
+        this.nomineeMaxAwardValue = nomineeMaxAwardValue;
     }
 
     public void recieveAward(Award award) {
@@ -21,7 +30,6 @@ public class Nominee {
         } else {
             System.out.println(" Origin value of the Award " + award.getValue());
         }
-///    return award.getValue();
     }
 
     public String getName() {
@@ -43,8 +51,24 @@ public class Nominee {
         result = b / (1.0 + c);
         System.out.println(result);
         return result;
-
     }
+
+    public int getNomineeAwardQuantityLimit() {
+        return nomineeAwardQuantityLimit;
+    }
+
+    public void setNomineeAwardQuantityLimit(int nomineeAwardQuantityLimit) {
+        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
+    }
+
+    public double getNomineeMaxAwardValue() {
+        return nomineeMaxAwardValue;
+    }
+
+    public void setNomineeMaxAwardValue(double nomineeMaxAwardValue) {
+        this.nomineeMaxAwardValue = nomineeMaxAwardValue;
+    }
+
 }
 
 
