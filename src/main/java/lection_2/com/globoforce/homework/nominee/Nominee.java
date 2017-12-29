@@ -36,6 +36,11 @@ public class Nominee {
         return name;
     }
 
+    /**
+     *
+     * @param award
+     * @return
+     */
     // Recalculation of the Award value by formula
     public double recalculation(Award award) {
         double C = random.nextDouble();
