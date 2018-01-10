@@ -32,9 +32,7 @@ public class Award {
         System.out.println("constructor initialisation " + this.value);
     }
 
-    /**
-     * @return - value for the Award
-     */
+
     public int getValue() {
         return value;
     }
@@ -44,9 +42,7 @@ public class Award {
         this.soli = soli;
     }
 
-    /**
-     * @return - soli value
-     */
+
     public double getSoli() {
         return soli;
     }

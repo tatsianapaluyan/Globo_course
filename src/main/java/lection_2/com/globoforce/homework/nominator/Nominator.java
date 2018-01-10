@@ -8,8 +8,8 @@ import java.util.List;
 public class Nominator {
     private String name;
     private String currency = "EUR";
-    int nominatorAwardQuantityLimit;
-    double nominatorMaxAwardValue;
+    private int nominatorAwardQuantityLimit;
+    private double nominatorMaxAwardValue;
 
 
     /**
@@ -40,8 +40,6 @@ public class Nominator {
                 + currency + " By Nominator: " + name);
 //        nominee.recieveAward(award);
         nominateByNomineesConditions(nominee, award);
-        nominee.setNomineeMaxAwardValue(1);
-        nominateByNomineesConditions(nominee, award);
     }
 
     /**
@@ -53,12 +51,11 @@ public class Nominator {
             nominate(recipient, award);
         }
     }
+
     public void nominate(Nominator nominator, Nominee nominee, Award award) {
         System.out.println("Recipient: " + nominee.getName() + " Recieves the award: " + award.getValue() + " "
                 + currency + " By Nominator: " + name);
 //        nominee.recieveAward(award);
-        nominateByNominatorsConditions(nominator, nominee, award);
-        nominator.setNominatorAwardQuantityLimit(1);
         nominateByNominatorsConditions(nominator, nominee, award);
     }
 
@@ -70,8 +67,8 @@ public class Nominator {
      * @param nominee   is a specifier argument that is relative to the Nomination
      * @param award     an absolute Award to be given
      */
-    public void nominateByNominatorsConditions(Nominator nominator, Nominee nominee, Award award) {
-        if (nominatorAwardQuantityLimit >= 0) {
+    private void nominateByNominatorsConditions(Nominator nominator, Nominee nominee, Award award) {
+        if (nominatorAwardQuantityLimit > 0) {
             int nominationsCount = 0;
             for (int i = 0; i < getNominatorAwardQuantityLimit(); i++) {
 //            nominate(nominee, award);
@@ -96,12 +93,13 @@ public class Nominator {
     /**
      * This method nominates recipient till the limit by # of Nominations OR
      * till the limit by Nominee's Amount will be reached for the recipient
-     * @param nominee   is a specifier argument that is relative to the Nomination
-     * @param award     an absolute Award to be given
+     *
+     * @param nominee is a specifier argument that is relative to the Nomination
+     * @param award   an absolute Award to be given
      */
 
-    public void nominateByNomineesConditions(Nominee nominee, Award award) {
-        if (nominee.getNomineeAwardQuantityLimit() >= 0) {
+    private void nominateByNomineesConditions(Nominee nominee, Award award) {
+        if (nominee.getNomineeAwardQuantityLimit() > 0) {
             int nominationsCount = 1;
             for (int i = 1; i <= nominee.getNomineeAwardQuantityLimit() + 1; i++) {
                 if (i <= nominee.getNomineeAwardQuantityLimit()) {

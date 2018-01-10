@@ -16,8 +16,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        task2();
-        task3();
+//        task2();
+//        task3();
         task4();
     }
 
@@ -104,21 +104,30 @@ public class Main {
             switch (i) {
                 case 1:
                     System.out.println("NOMINATION LIMIT that Nominator can give");
-                    nominator1.nominateByNominatorsConditions(nominator1, nominee, award2);
+//                    nominator1.nominateByNominatorsConditions(nominator1, nominee, award2);
+                    nominator1.nominate(nominator1, nominee, award2);
+                    System.out.println();
                     break;
                 case 2:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Nominator can give");
-                    nominator1.nominateByNominatorsConditions(nominator1, nominee, award2);
+//                    nominator1.nominateByNominatorsConditions(nominator1, nominee2, award1);
+                    nominator1.setNominatorAwardQuantityLimit(0);
+                    nominator1.nominate(nominator1, nominee2, award1);
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("NOMINATION LIMIT that Recipient can receive");
-                    nominator1.nominateByNomineesConditions(nominee3, award);
+//                    nominator1.nominateByNomineesConditions(nominee3, award);
+                    nominator1.nominate(nominee3, award);
+                    System.out.println();
 
                     break;
                 case 4:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Recipient can receive");
-                    nominator1.nominateByNomineesConditions(nominee3, award1);
-
+                    //nominator1.nominateByNomineesConditions(nominee3, award1);
+                    nominee3.setNomineeAwardQuantityLimit(0);
+                    nominator1.nominate(nominee3, award1);
+                    System.out.println();
                     break;
 //                case 5:
 //                    nominator1.maxNumberforNominator(nominator1, nominee, award);
