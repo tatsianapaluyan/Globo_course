@@ -3,21 +3,17 @@ package lection_2.com.globoforce.homework;
 import lection_2.com.globoforce.homework.award.Award;
 import lection_2.com.globoforce.homework.nominator.Nominator;
 import lection_2.com.globoforce.homework.nominee.Nominee;
-//import lection_2.com.globoforce.homework.util.NominationLimit;
-
+import lection_2.com.globoforce.homework.util.AwardRecalculation;
+import lection_2.com.globoforce.homework.util.NominationHelper;
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- *
- */
 
 public class Main {
 
     public static void main(String[] args) {
 
-//        task2();
-//        task3();
+        task2();
+        task3();
         task4();
     }
 
@@ -43,7 +39,7 @@ public class Main {
         recipients.add(nominee);
         recipients.add(nominee1);
         recipients.add(nominee2);
-        //        nominator.nominate(recipients, award);
+        // nominator.nominate(recipients, award);
     }
 
 
@@ -61,14 +57,18 @@ public class Main {
         Nominee nominee1 = new Nominee("Yura");
         Nominee nominee2 = new Nominee("Pasha");
 
-        nominator.nominate(nominee, award2);
-        nominator.nominate(nominee1, award1);
-        nominator.nominate(nominator, nominee2, award);
+        NominationHelper nominationHelper = new NominationHelper(nominator);
+        nominationHelper.nominate(nominee, award2);
+        nominationHelper.nominate(nominee1, award1);
+        nominationHelper.nominate(nominator, nominee2, award2);
+
+
+        AwardRecalculation awardRecalculation = new AwardRecalculation();
 
         System.out.println("Award values for the Nominees with Soli");
-        double first = nominee.recalculation(award1);
-        double second = nominee1.recalculation(award2);
-        double third = nominee2.recalculation(award);
+        double first = awardRecalculation.recalculation(award1);
+        double second = awardRecalculation.recalculation(award2);
+        double third = awardRecalculation.recalculation(award);
 
         System.out.println(first);
         System.out.println(second);
@@ -99,44 +99,34 @@ public class Main {
 
         Nominee nominee3 = new Nominee("BOB", 5, 2000);
 
-        //   NominationLimit nl = new NominationLimit();
+        NominationHelper nominationHelper = new NominationHelper(nominator1);
         for (int i = 0; i < 6; i++) {
             switch (i) {
                 case 1:
                     System.out.println("NOMINATION LIMIT that Nominator can give");
-//                    nominator1.nominateByNominatorsConditions(nominator1, nominee, award2);
-                    nominator1.nominate(nominator1, nominee, award2);
+                    nominationHelper.nominate(nominator1, nominee, award2);
                     System.out.println();
                     break;
                 case 2:
-                    System.out.println("NOMINATION LIMIT for the Award Amount that Nominator can give");
-//                    nominator1.nominateByNominatorsConditions(nominator1, nominee2, award1);
                     nominator1.setNominatorAwardQuantityLimit(0);
-                    nominator1.nominate(nominator1, nominee2, award1);
+                    nominationHelper.nominate(nominator1, nominee2, award1);
                     System.out.println();
                     break;
                 case 3:
                     System.out.println("NOMINATION LIMIT that Recipient can receive");
-//                    nominator1.nominateByNomineesConditions(nominee3, award);
-                    nominator1.nominate(nominee3, award);
+                    nominationHelper.nominate(nominee3, award);
                     System.out.println();
 
                     break;
                 case 4:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Recipient can receive");
-                    //nominator1.nominateByNomineesConditions(nominee3, award1);
                     nominee3.setNomineeAwardQuantityLimit(0);
-                    nominator1.nominate(nominee3, award1);
+                    nominationHelper.nominate(nominee3, award1);
                     System.out.println();
                     break;
-//                case 5:
-//                    nominator1.maxNumberforNominator(nominator1, nominee, award);
-//                    break;
-
                 default:
                     System.out.println("Invalid Choice .. Try Again.");
             }
         }
-
     }
 }
