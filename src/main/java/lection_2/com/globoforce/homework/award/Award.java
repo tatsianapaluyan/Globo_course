@@ -3,7 +3,6 @@ package lection_2.com.globoforce.homework.award;
 public class Award {
 
 
-
     static {
         System.out.println("Static initalization of Award class ");
     }
@@ -17,8 +16,7 @@ public class Award {
     private double soli;
 
     /**
-     *
-     * @param soli - soli value, taking into account for Nomination with Soli
+     * @param soli  - soli value, taking into account for Nomination with Soli
      * @param value - value of the Award
      */
     public Award(double soli, int value) {
@@ -27,7 +25,6 @@ public class Award {
     }
 
     /**
-     *
      * @param value - value of the Award
      */
     public Award(int value) {

@@ -37,7 +37,6 @@ public class Nominee {
     }
 
     /**
-     *
      * @param award
      * @return
      */

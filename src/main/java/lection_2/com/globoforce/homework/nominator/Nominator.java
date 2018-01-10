@@ -6,17 +6,14 @@ import lection_2.com.globoforce.homework.nominee.Nominee;
 import java.util.List;
 
 public class Nominator {
-    /**
-     *
-     */
     private String name;
     private String currency = "EUR";
     int nominatorAwardQuantityLimit;
     double nominatorMaxAwardValue;
 
+
     /**
-     *
-     * @param name - Recipient's name
+     * @param name     - Recipient's name
      * @param currency - currency of the Award
      */
     public Nominator(String name, String currency) {
@@ -25,10 +22,9 @@ public class Nominator {
     }
 
     /**
-     *
-     * @param name - Nominator's name
+     * @param name                        - Nominator's name
      * @param nominatorAwardQuantityLimit - № of Nominations that Nominator can give
-     * @param nominatorMaxAwardValue - max value of the Award that Nominator can give
+     * @param nominatorMaxAwardValue      - max value of the Award that Nominator can give
      */
     public Nominator(String name, int nominatorAwardQuantityLimit, double nominatorMaxAwardValue) {
         this.name = name;
@@ -53,66 +49,66 @@ public class Nominator {
         }
     }
 
+    public void nominate(Nominator nominator, Nominee nominee, Award award) {
+        System.out.println("Recipient: " + nominee.getName() + " Recieves the award: " + award.getValue() + " "
+                + nominator.getCurrency() + " By Nominator: " + nominator.getName());
+        nominee.recieveAward(award);
+    }
+
+
+    public void maxNumberforNominator(Nominator nominator, Nominee nominee, Award award) {
+        int nominationsCount = 0;
+        for (int i = 0; i < nominator.getNominatorAwardQuantityLimit(); i++) {
+//            nominate(nominee, award);
+            nominationsCount++;
+        }
+        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
+                + nominationsCount + " Nomination" + " With limit " + nominator.getNominatorAwardQuantityLimit());
+    }
+
     /**
-     *
      * @param nominee
      * @param award
      */
-//    public void maxNumberforNominator(Nominee nominee, Award award) {
-//        int nominationsCount = 0;
-//        for (int i = 0; i < getNominatorAwardQuantityLimit(); i++) {
-////            nominate(nominee, award);
-//            nominationsCount++;
-//        }
-//        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
-//                + nominationsCount + " Nomination" + " With limit " + nominator.getNominatorAwardQuantityLimit());
-//    }
-//
-//    /**
-//     *
-//     * @param nominee
-//     * @param award
-//     */
-//    public void maxAmountForNominator(Nominee nominee, Award award) {
-//        int sum = 0;
-//        int nominationsCount = 0;
-//        while (sum + award.getValue() <= getNominatorMaxAwardValue()) {
-//            sum += award.getValue();
-//
-////            nominate(nominee, award);
-//            nominationsCount++;
-//        }
-//        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
-//                + nominationsCount + " Nomination" + " With limit " + getNominatorMaxAwardValue());
-//    }
-//
-//
-//    public void maxNumberForNominee(Nominee nominee, Award award) {
-//        int nominationsCount = 1;
-//        for (int i = 1; i <= nominee.getNomineeAwardQuantityLimit() + 1; i++) {
-//            if (i <= nominee.getNomineeAwardQuantityLimit()) {
-//
-//                nominationsCount++;
-//            } else {
-//                System.out.println(nominee.getName() + " would not recieve more awards because ");
-//            }
-//        }
-//        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
-//                + nominationsCount + " Nomination " + " With limit " + nominee.getNomineeAwardQuantityLimit());
-//    }
-//
-//
-//    public void maxAmountForNominee(Nominee nominee, Award award) {
-//        int sum = award.getValue();
-//        int nominationsCount = 0;
-//        do {
-////            nominate(nominee, award);
-//            nominationsCount++;
-//        } while ((sum += award.getValue()) <= nominee.getNomineeMaxAwardValue());
-//        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
-//                + nominationsCount + " Nomination " + " With limit " + nominee.getNomineeMaxAwardValue());
-//    }
+    public void maxAmountForNominator(Nominator nominator, Nominee nominee, Award award) {
+        int sum = 0;
+        int nominationsCount = 0;
+        while (sum + award.getValue() <= nominator.getNominatorMaxAwardValue()) {
+            sum += award.getValue();
 
+//            nominate(nominee, award);
+            nominationsCount++;
+        }
+        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
+                + nominationsCount + " Nomination" + " With limit " + nominator.getNominatorMaxAwardValue());
+    }
+
+
+    public void maxNumberForNominee(Nominator nominator, Nominee nominee, Award award) {
+        int nominationsCount = 1;
+        for (int i = 1; i <= nominee.getNomineeAwardQuantityLimit() + 1; i++) {
+            if (i <= nominee.getNomineeAwardQuantityLimit()) {
+
+                nominationsCount++;
+            } else {
+                System.out.println(nominee.getName() + " would not recieve more awards because ");
+            }
+        }
+        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
+                + nominationsCount + " Nomination " + " With limit " + nominee.getNomineeAwardQuantityLimit());
+    }
+
+
+    public void maxAmountForNominee(Nominator nominator, Nominee nominee, Award award) {
+        int sum = award.getValue();
+        int nominationsCount = 0;
+        do {
+//            nominate(nominee, award);
+            nominationsCount++;
+        } while ((sum += award.getValue()) <= nominee.getNomineeMaxAwardValue());
+        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
+                + nominationsCount + " Nomination " + " With limit " + nominee.getNomineeMaxAwardValue());
+    }
 
     public int getNominatorAwardQuantityLimit() {
         return nominatorAwardQuantityLimit;
@@ -128,6 +124,22 @@ public class Nominator {
 
     public void setNominatorMaxAwardValue(double nominatorMaxAwardValue) {
         this.nominatorMaxAwardValue = nominatorMaxAwardValue;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }
 

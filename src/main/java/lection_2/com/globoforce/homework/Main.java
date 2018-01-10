@@ -3,6 +3,7 @@ package lection_2.com.globoforce.homework;
 import lection_2.com.globoforce.homework.award.Award;
 import lection_2.com.globoforce.homework.nominator.Nominator;
 import lection_2.com.globoforce.homework.nominee.Nominee;
+//import lection_2.com.globoforce.homework.util.NominationLimit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // task2();
-        // task3();
+        task2();
+        task3();
         task4();
     }
 
@@ -42,7 +43,6 @@ public class Main {
         recipients.add(nominee);
         recipients.add(nominee1);
         recipients.add(nominee2);
-
         //        nominator.nominate(recipients, award);
     }
 
@@ -63,13 +63,12 @@ public class Main {
 
         nominator.nominate(nominee, award2);
         nominator.nominate(nominee1, award1);
-        nominator.nominate(nominee2, award);
+        nominator.nominate(nominator, nominee2, award);
 
         System.out.println("Award values for the Nominees with Soli");
         double first = nominee.recalculation(award1);
         double second = nominee1.recalculation(award2);
         double third = nominee2.recalculation(award);
-
 
         System.out.println(first);
         System.out.println(second);
@@ -100,30 +99,30 @@ public class Main {
 
         Nominee nominee3 = new Nominee("BOB", 5, 2000);
 
-        NominationLimit nl = new NominationLimit();
+        //   NominationLimit nl = new NominationLimit();
         for (int i = 0; i < 7; i++) {
             switch (i) {
                 case 1:
                     System.out.println("NOMINATION LIMIT that Nominator can give");
-                    nl.maxNumberforNominator(nominator1, nominee, award2);
+                    nominator1.maxNumberforNominator(nominator1, nominee, award2);
                     break;
                 case 2:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Nominator can give");
-                    nl.maxAmountForNominator(nominator1, nominee1, award);
+                    nominator1.maxAmountForNominator(nominator1, nominee1, award);
                     break;
                 case 3:
                     System.out.println("NOMINATION LIMIT that Recipient can receive");
-                    nl.maxNumberForNominee(nominator1, nominee3, award);
+                    nominator1.maxNumberForNominee(nominator1, nominee3, award);
 
                     break;
                 case 4:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Recipient can receive");
-                    nl.maxAmountForNominee(nominator1, nominee3, award1);
+                    nominator1.maxAmountForNominee(nominator1, nominee3, award1);
 
                     break;
                 case 5:
 
-                    nl.maxNumberforNominator(nominator1, nominee, award);
+                    nominator1.maxNumberforNominator(nominator1, nominee, award);
                     break;
 
                 default:
