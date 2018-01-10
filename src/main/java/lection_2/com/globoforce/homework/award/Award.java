@@ -8,7 +8,7 @@ public class Award {
     }
 
     {
-        System.out.println("Instance initialization " + this.getValue());
+        System.out.println("Award Instance initialization " + this.getValue());
     }
 
 
