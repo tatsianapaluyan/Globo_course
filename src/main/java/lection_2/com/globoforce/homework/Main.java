@@ -100,30 +100,30 @@ public class Main {
         Nominee nominee3 = new Nominee("BOB", 5, 2000);
 
         //   NominationLimit nl = new NominationLimit();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 3; i++) {
             switch (i) {
                 case 1:
                     System.out.println("NOMINATION LIMIT that Nominator can give");
-                    nominator1.maxNumberforNominator(nominator1, nominee, award2);
+                    nominator1.nominateByNominatorsConditions(nominator1, nominee, award2);
                     break;
                 case 2:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Nominator can give");
-                    nominator1.maxAmountForNominator(nominator1, nominee1, award);
+                    nominator1.nominateByNomineesConditions(nominator1, nominee, award2);
                     break;
-                case 3:
-                    System.out.println("NOMINATION LIMIT that Recipient can receive");
-                    nominator1.maxNumberForNominee(nominator1, nominee3, award);
-
-                    break;
-                case 4:
-                    System.out.println("NOMINATION LIMIT for the Award Amount that Recipient can receive");
-                    nominator1.maxAmountForNominee(nominator1, nominee3, award1);
-
-                    break;
-                case 5:
-
-                    nominator1.maxNumberforNominator(nominator1, nominee, award);
-                    break;
+//                case 3:
+//                    System.out.println("NOMINATION LIMIT that Recipient can receive");
+//                    nominator1.maxNumberForNominee(nominator1, nominee3, award);
+//
+//                    break;
+//                case 4:
+//                    System.out.println("NOMINATION LIMIT for the Award Amount that Recipient can receive");
+//                    nominator1.maxAmountForNominee(nominator1, nominee3, award1);
+//
+//                    break;
+//                case 5:
+//
+//                    nominator1.maxNumberforNominator(nominator1, nominee, award);
+//                    break;
 
                 default:
                     System.out.println("Invalid Choice .. Try Again.");
