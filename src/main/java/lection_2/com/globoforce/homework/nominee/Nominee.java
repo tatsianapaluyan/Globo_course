@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Nominee {
     private String name;
-    int nomineeAwardQuantityLimit;
-    double nomineeMaxAwardValue;
+    private int nomineeAwardQuantityLimit;
+    private double nomineeMaxAwardValue;
 
 
     public Nominee(String name) {

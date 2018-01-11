@@ -1,10 +1,5 @@
 package lection_2.com.globoforce.homework.nominator;
 
-import lection_2.com.globoforce.homework.award.Award;
-import lection_2.com.globoforce.homework.nominee.Nominee;
-import lection_2.com.globoforce.homework.util.NominationHelper;
-
-import java.util.List;
 
 public class Nominator {
     private String name;
