@@ -11,7 +11,7 @@ public class AwardRecalculation {
 
     /**
      * @param award
-     * @return ReCalculation of the Award Amount according the Soli value
+     * @return ReCalculation of the Award Amount according to the Soli value
      */
 
     // Recalculation of the Award value by formula

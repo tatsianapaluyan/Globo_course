@@ -5,6 +5,8 @@ import lection_2.com.globoforce.homework.nominator.Nominator;
 import lection_2.com.globoforce.homework.nominee.Nominee;
 import lection_2.com.globoforce.homework.util.AwardRecalculation;
 import lection_2.com.globoforce.homework.util.NominationHelper;
+import lection_2.com.globoforce.homework.util.AwardCreation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +32,10 @@ public class Main {
         Nominee nominee2 = new Nominee("Pasha");
 
         Nominee nominee3 = new Nominee("BOB", 5, 2000);
+        AwardCreation awardCreation = new AwardCreation();
+//        nominee.recieveAward(award);
+        awardCreation.recieveAward(award);
 
-        nominee.recieveAward(award);
 
         Nominator nominator = new Nominator("Liam", "EUR");
 
