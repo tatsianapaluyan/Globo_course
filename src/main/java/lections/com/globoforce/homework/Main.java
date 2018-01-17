@@ -5,7 +5,7 @@ import lections.com.globoforce.homework.nominator.Nominator;
 import lections.com.globoforce.homework.nominee.Nominee;
 import lections.com.globoforce.homework.util.AwardRecalculation;
 import lections.com.globoforce.homework.util.NominationHelper;
-import lections.com.globoforce.homework.util.AwardCreation;
+import lections.com.globoforce.homework.util.RecieveAward;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         task2();
-//        task3();
+//       task3();
 //        task4();
     }
 
@@ -38,15 +38,14 @@ public class Main {
         Nominator nominator = new Nominator("Liam", "EUR");
 
         Nominee nominee3 = new Nominee("BOB", 5, 2000);
-//        AwardCreation awardCreation = new AwardCreation();
+        RecieveAward recieveAward = new RecieveAward();
 //        nominee.recieveAward(award);
-//       awardCreation.recieveAward(award);
-//        person.recieveAward(nominator, nominee, cash);
-        Person person = new Person();
-        person.recieveAward1(nominator, nominee);
+//        recieveAward.recieveAward(award);
 
-        nominee.recieveAward(nominator, nominee, cash);
-        nominator.recieveAward(nominator, nominee, noncash);
+        Person person = new Person();
+        person.recieveAward(award);
+        nominee.recieveAward(cash);
+        nominator.recieveAward(noncash);
 
 
         List<Nominee> recipients = new ArrayList<Nominee>();

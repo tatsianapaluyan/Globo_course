@@ -14,6 +14,15 @@ public class Nominee extends Person {
         super(name);
     }
 
+    public Nominee(String name, String lastName) {
+        super.getName();
+        super.getLastName();
+    }
+
+    public Nominee() {
+        this("FirstName","LastName");
+    }
+
     public Nominee(String name, int nomineeAwardQuantityLimit, double nomineeMaxAwardValue) {
         super(name);
         this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
@@ -21,12 +30,11 @@ public class Nominee extends Person {
     }
 
     @Override
-    public void recieveAward(Nominator nominator, Nominee nominee, Award award) {
+    public void recieveAward(Award award) {
         if (award.getType().equals("Cash")) {
-//            super.recieveAward(nominator, nominee, award);
-            System.out.println(" User recieves Award with value " + award.getValue() + " and type 111" + award.getType());
+            System.out.println("User " + getName()+  " recieves Award with value " + award.getValue() + " and type " + award.getType());
         } else {
-            System.out.println("do nothing");
+            System.out.println("Do nothing");
         }
     }
 

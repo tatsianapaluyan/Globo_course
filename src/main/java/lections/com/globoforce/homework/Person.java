@@ -3,6 +3,7 @@ package lections.com.globoforce.homework;
 import lections.com.globoforce.homework.award.Award;
 import lections.com.globoforce.homework.nominator.Nominator;
 import lections.com.globoforce.homework.nominee.Nominee;
+import lections.com.globoforce.homework.util.RecieveAward;
 
 public class Person {
 
@@ -23,8 +24,8 @@ public class Person {
     }
 
 
-    public void recieveAward(Nominator nominator, Nominee nominee, Award award) {
-        System.out.println(" User recieves Award with value " + award.getValue());
+    public void recieveAward(Award award) {
+        System.out.println("User recieves Award with value " + award.getValue());
     }
 
 
@@ -42,11 +43,6 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-
-
     }
 
-    public void recieveAward1(Nominator nominator, Nominee nominee) {
-        System.out.println(" User recieves Award");
-    }
 }

@@ -5,8 +5,8 @@ import lections.com.globoforce.homework.Person;
 import lections.com.globoforce.homework.award.Award;
 import lections.com.globoforce.homework.nominee.Nominee;
 
-public class Nominator extends Person{
-//    private String name;
+public class Nominator extends Person {
+    //    private String name;
     private String currency = "EUR";
     private int nominatorAwardQuantityLimit;
     private double nominatorMaxAwardValue;
@@ -19,10 +19,12 @@ public class Nominator extends Person{
         super(name); //   <--     вызывает нижний конструктор
 
 
-//        this(name,5,2);
+        //this(name,5,2);
 
         this.currency = currency;
     }
+
+
 
     /**
      * @param name                        - Nominator's name
@@ -36,16 +38,13 @@ public class Nominator extends Person{
     }
 
     @Override
-    public void recieveAward(Nominator nominator, Nominee nominee, Award award) {
+    public void recieveAward(Award award) {
         if (award.getType().equals("NonCash")) {
-//            super.recieveAward(nominator, nominee, award);
-            System.out.println(" User recieves Award with value " + award.getValue() + " and type222 " + award.getType());
+            System.out.println("User " + getName()+  " recieves Award with value " + award.getValue() + " and type " + award.getType());
         } else {
-            System.out.println("do nothing");
+            System.out.println("Do nothing");
         }
     }
-
-
 
 
     public int getNominatorAwardQuantityLimit() {

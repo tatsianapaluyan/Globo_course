@@ -2,7 +2,7 @@ package lections.com.globoforce.homework.util;
 
 import lections.com.globoforce.homework.award.Award;
 
-public class AwardCreation {
+public class RecieveAward {
     /**
      * This method calculates the award value
      * If soli factor is not defined, message with initial award value is displayed in console
