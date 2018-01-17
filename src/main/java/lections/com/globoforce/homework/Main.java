@@ -41,9 +41,9 @@ public class Main {
 //        AwardCreation awardCreation = new AwardCreation();
 //        nominee.recieveAward(award);
 //       awardCreation.recieveAward(award);
+//        person.recieveAward(nominator, nominee, cash);
         Person person = new Person();
         person.recieveAward1(nominator, nominee);
-//        person.recieveAward(nominator, nominee, cash);
 
         nominee.recieveAward(nominator, nominee, cash);
         nominator.recieveAward(nominator, nominee, noncash);
