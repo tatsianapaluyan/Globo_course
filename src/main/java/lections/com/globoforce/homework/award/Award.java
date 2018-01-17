@@ -1,4 +1,4 @@
-package lection_2.com.globoforce.homework.award;
+package lections.com.globoforce.homework.award;
 
 public class Award {
 
@@ -14,14 +14,16 @@ public class Award {
 
     private final int value;
     private double soli;
+    private String type;
 
     /**
      * @param soli  - soli value, taking into account for Nomination with Soli
      * @param value - value of the Award
      */
-    public Award(double soli, int value) {
+    public Award(double soli, int value, String type) {
         this.soli = soli;
         this.value = value;
+        this.type = type;
     }
 
     /**
@@ -32,6 +34,14 @@ public class Award {
         System.out.println("constructor initialisation " + this.value);
     }
 
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public int getValue() {
         return value;

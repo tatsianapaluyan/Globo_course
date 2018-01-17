@@ -1,8 +1,8 @@
-package lection_2.com.globoforce.homework.util;
+package lections.com.globoforce.homework.util;
 
-import lection_2.com.globoforce.homework.award.Award;
-import lection_2.com.globoforce.homework.nominator.Nominator;
-import lection_2.com.globoforce.homework.nominee.Nominee;
+import lections.com.globoforce.homework.award.Award;
+import lections.com.globoforce.homework.nominator.Nominator;
+import lections.com.globoforce.homework.nominee.Nominee;
 
 import java.util.List;
 

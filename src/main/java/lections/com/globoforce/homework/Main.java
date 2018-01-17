@@ -1,11 +1,11 @@
-package lection_2.com.globoforce.homework;
+package lections.com.globoforce.homework;
 
-import lection_2.com.globoforce.homework.award.Award;
-import lection_2.com.globoforce.homework.nominator.Nominator;
-import lection_2.com.globoforce.homework.nominee.Nominee;
-import lection_2.com.globoforce.homework.util.AwardRecalculation;
-import lection_2.com.globoforce.homework.util.NominationHelper;
-import lection_2.com.globoforce.homework.util.AwardCreation;
+import lections.com.globoforce.homework.award.Award;
+import lections.com.globoforce.homework.nominator.Nominator;
+import lections.com.globoforce.homework.nominee.Nominee;
+import lections.com.globoforce.homework.util.AwardRecalculation;
+import lections.com.globoforce.homework.util.NominationHelper;
+import lections.com.globoforce.homework.util.AwardCreation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,29 +15,39 @@ public class Main {
     public static void main(String[] args) {
 
         task2();
-        task3();
-        task4();
+//        task3();
+//        task4();
     }
 
 
     private static void task2() {
         System.out.println("Task 2 start");
 
-        Award award = new Award(5, 200);
-        Award award1 = new Award(6, 300);
-        Award award2 = new Award(7, 400);
+        Award award = new Award(5, 200, "Cash");
+        Award award1 = new Award(6, 300, "NonCash");
+        Award award2 = new Award(7, 400, "Cash");
+
+        Award cash = new Award(7, 400, "Cash");
+        Award noncash = new Award(7, 400, "NonCash");
+
 
         Nominee nominee = new Nominee("Tanya");
         Nominee nominee1 = new Nominee("Yura");
         Nominee nominee2 = new Nominee("Pasha");
 
-        Nominee nominee3 = new Nominee("BOB", 5, 2000);
-        AwardCreation awardCreation = new AwardCreation();
-//        nominee.recieveAward(award);
-        awardCreation.recieveAward(award);
-
-
         Nominator nominator = new Nominator("Liam", "EUR");
+
+        Nominee nominee3 = new Nominee("BOB", 5, 2000);
+//        AwardCreation awardCreation = new AwardCreation();
+//        nominee.recieveAward(award);
+//       awardCreation.recieveAward(award);
+        Person person = new Person();
+        person.recieveAward1(nominator, nominee);
+//        person.recieveAward(nominator, nominee, cash);
+
+        nominee.recieveAward(nominator, nominee, cash);
+        nominator.recieveAward(nominator, nominee, noncash);
+
 
         List<Nominee> recipients = new ArrayList<Nominee>();
         recipients.add(nominee);
@@ -54,9 +64,9 @@ public class Main {
 
 
         Nominator nominator = new Nominator("Liam", "EUR");
-        Award award = new Award(5, 200);
-        Award award1 = new Award(6, 300);
-        Award award2 = new Award(7, 400);
+        Award award = new Award(5, 200, "Cash");
+        Award award1 = new Award(6, 300, "NonCash");
+        Award award2 = new Award(7, 400, "Cash");
         Nominee nominee = new Nominee("Tanya");
         Nominee nominee1 = new Nominee("Yura");
         Nominee nominee2 = new Nominee("Pasha");
@@ -97,9 +107,9 @@ public class Main {
         Nominee nominee = new Nominee("Tanya");
         Nominee nominee1 = new Nominee("Yura");
         Nominee nominee2 = new Nominee("Pasha");
-        Award award = new Award(5, 200);
-        Award award1 = new Award(6, 300);
-        Award award2 = new Award(7, 400);
+        Award award = new Award(5, 200, "Cash");
+        Award award1 = new Award(6, 300, "NonCash");
+        Award award2 = new Award(7, 400, "Cash");
 
         Nominee nominee3 = new Nominee("BOB", 5, 2000);
 
@@ -130,6 +140,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid Choice .. Try Again.");
+
             }
         }
     }

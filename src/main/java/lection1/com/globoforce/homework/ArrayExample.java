@@ -1,4 +1,4 @@
-package lection_1.com.globoforce.homework;
+package lection1.com.globoforce.homework;
 
 public class ArrayExample {
     public static void main(String[] args) {

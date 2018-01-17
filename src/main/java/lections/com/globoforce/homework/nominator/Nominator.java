@@ -1,8 +1,12 @@
-package lection_2.com.globoforce.homework.nominator;
+package lections.com.globoforce.homework.nominator;
 
 
-public class Nominator {
-    private String name;
+import lections.com.globoforce.homework.Person;
+import lections.com.globoforce.homework.award.Award;
+import lections.com.globoforce.homework.nominee.Nominee;
+
+public class Nominator extends Person{
+//    private String name;
     private String currency = "EUR";
     private int nominatorAwardQuantityLimit;
     private double nominatorMaxAwardValue;
@@ -12,7 +16,11 @@ public class Nominator {
      * @param currency - currency of the Award
      */
     public Nominator(String name, String currency) {
-        this.name = name;
+        super(name); //   <--     вызывает нижний конструктор
+
+
+//        this(name,5,2);
+
         this.currency = currency;
     }
 
@@ -22,10 +30,22 @@ public class Nominator {
      * @param nominatorMaxAwardValue      - max value of the Award that Nominator can give
      */
     public Nominator(String name, int nominatorAwardQuantityLimit, double nominatorMaxAwardValue) {
-        this.name = name;
+        super(name);
         this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
         this.nominatorMaxAwardValue = nominatorMaxAwardValue;
     }
+
+    @Override
+    public void recieveAward(Nominator nominator, Nominee nominee, Award award) {
+        if (award.getType().equals("NonCash")) {
+//            super.recieveAward(nominator, nominee, award);
+            System.out.println(" User recieves Award with value " + award.getValue() + " and type222 " + award.getType());
+        } else {
+            System.out.println("do nothing");
+        }
+    }
+
+
 
 
     public int getNominatorAwardQuantityLimit() {
@@ -42,14 +62,6 @@ public class Nominator {
 
     public void setNominatorMaxAwardValue(double nominatorMaxAwardValue) {
         this.nominatorMaxAwardValue = nominatorMaxAwardValue;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCurrency() {
