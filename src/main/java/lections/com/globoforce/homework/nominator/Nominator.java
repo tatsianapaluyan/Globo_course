@@ -71,7 +71,7 @@ public class Nominator extends Person {
         this.currency = currency;
     }
 
-    //переопределяем родительский метод getName
+    //override parent's method getName
     @Override
     public String getName() {
         return super.getName();

@@ -14,14 +14,6 @@ public class Nominee extends Person {
         super(name);
     }
 
-    public Nominee(String name, String lastName) {
-        super.getName();
-        super.getLastName();
-    }
-
-    public Nominee() {
-        this("FirstName","LastName");
-    }
 
     public Nominee(String name, int nomineeAwardQuantityLimit, double nomineeMaxAwardValue) {
         super(name);

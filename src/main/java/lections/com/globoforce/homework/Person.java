@@ -40,10 +40,10 @@ public class Person {
         this.lastName = lastName;
     }
 
-    //переопределяем дефолтный конструктор и вызываем из него параметризированный, т.е. создается Person с именем Default
+    //override defaul constructor and call from it a parametrized, Person object s created with th name "No name"
     public Person() {
-        this("Default");
+        this("No name");
 
-        System.out.println("PersonVO object created using default constructor");
+        System.out.println("Person object created using default constructor");
     }
 }
