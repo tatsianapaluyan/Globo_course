@@ -24,7 +24,6 @@ public class Nominator extends Person {
     }
 
 
-
     /**
      * @param name                        - Nominator's name
      * @param nominatorAwardQuantityLimit - № of Nominations that Nominator can give
@@ -39,7 +38,7 @@ public class Nominator extends Person {
     @Override
     public void recieveAward(Award award) {
         if (award.getType().equals("NonCash")) {
-            System.out.println("User " + getName()+  " recieves Award with value " + award.getValue() + " and type " + award.getType());
+            System.out.println("User " + getName() + " recieves Award with value " + award.getValue() + " and type " + award.getType());
         } else {
             System.out.println("Do nothing");
         }

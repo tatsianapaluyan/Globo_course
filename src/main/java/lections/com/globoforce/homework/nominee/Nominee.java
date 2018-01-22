@@ -22,7 +22,7 @@ public class Nominee extends Person {
     @Override
     public void recieveAward(Award award) {
         if (award.getType().equals("Cash")) {
-            System.out.println("User " + getName()+  " recieves Award with value " + award.getValue() + " and type " + award.getType());
+            System.out.println("User " + getName() + " recieves Award with value " + award.getValue() + " and type " + award.getType());
         } else {
             System.out.println("Do nothing");
         }
