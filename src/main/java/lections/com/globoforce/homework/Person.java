@@ -1,9 +1,6 @@
 package lections.com.globoforce.homework;
 
 import lections.com.globoforce.homework.award.Award;
-import lections.com.globoforce.homework.nominator.Nominator;
-import lections.com.globoforce.homework.nominee.Nominee;
-import lections.com.globoforce.homework.util.RecieveAward;
 
 public class Person {
 
@@ -22,7 +19,6 @@ public class Person {
     public void recieveAward(Award award) {
         System.out.println("User recieves Award with value " + award.getValue());
     }
-
 
     public String getName() {
         return name;
@@ -46,4 +42,7 @@ public class Person {
 
         System.out.println("Person object created using default constructor");
     }
+
+
+
 }

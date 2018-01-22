@@ -2,8 +2,6 @@ package lections.com.globoforce.homework.nominee;
 
 import lections.com.globoforce.homework.Person;
 import lections.com.globoforce.homework.award.Award;
-import lections.com.globoforce.homework.nominator.Nominator;
-import lections.com.globoforce.homework.util.NominationHelper;
 
 public class Nominee extends Person {
     private int nomineeAwardQuantityLimit;

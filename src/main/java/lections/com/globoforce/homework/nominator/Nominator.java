@@ -3,7 +3,6 @@ package lections.com.globoforce.homework.nominator;
 
 import lections.com.globoforce.homework.Person;
 import lections.com.globoforce.homework.award.Award;
-import lections.com.globoforce.homework.nominee.Nominee;
 
 public class Nominator extends Person {
     //    private String name;
