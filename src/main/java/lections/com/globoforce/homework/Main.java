@@ -107,9 +107,8 @@ public class Main {
 
         Nominator nominator1 = new Nominator("Jonathan", 5, 2000, 0);
         Nominee nominee = new Nominee("Tanya");
-        Nominee nominee1 = new Nominee("Yura");
         Nominee nominee2 = new Nominee("Pasha");
-        Nominee nominee4 = new Nominee(null);
+
 
         Award award = new Award(5, 200, "Cash");
         Award award1 = new Award(6, 300, "NonCash");
@@ -155,21 +154,20 @@ public class Main {
 
         Nominator nominator1 = new Nominator(null, 5, 2000, 0);
         Nominator nominator2 = new Nominator("Jonathan", 4, 700, 0);
+
+        Person nominee1 = new Nominee("Yura");
         Nominee nominee = new Nominee("Tanya");
-        Nominee nominee1 = new Nominee("Yura");
-        Nominee nominee2 = new Nominee("Pasha");
-        Nominee nominee4 = new Nominee(null);
+        Person nominee3 = new Nominee("BOB", 5, 2100, 0);
 
         Award award = new Award(5, 200, "Cash");
         Award award1 = new Award(6, 300, "NonCash");
         Award award2 = new Award(7, 400, "Cash");
 
-        Nominee nominee3 = new Nominee("BOB", 5, 2100, 0);
         NominationHelper nominationHelper = new NominationHelper(nominator1);
 
         nominationHelper.nominateTillReachNominatorAwardQuantityLimit(nominator1, nominee1, award2);
         nominationHelper.nominateTillReachNominatorAwardQuantityLimit(nominator2, nominee1, award2);
-        nominationHelper.nominateTillReachNominatorAwardAmountLimit(nominator2, nominee3, award);
+        nominationHelper.nominateTillReachNominatorAwardAmountLimit(nominator2, nominee, award);
         nominationHelper.nominateTillReachNomineeAwardQuantityLimit(nominator1, nominee3, award);
         nominationHelper.nominateTillReachNomineeAwardAmountLimit(nominator1, nominee3, award1);
 

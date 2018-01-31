@@ -1,5 +1,6 @@
 package lections.com.globoforce.homework.util;
 
+import lections.com.globoforce.homework.Person;
 import lections.com.globoforce.homework.award.Award;
 import lections.com.globoforce.homework.nominator.Nominator;
 import lections.com.globoforce.homework.nominee.Nominee;
@@ -55,12 +56,11 @@ public class NominationHelper {
     /**
      * This method nominates recipient till the limit by # of Nominations OR
      * till the limit by Nominator's Amount will be reached for Nominator
-     *
-     * @param nominator is a specifier argument that is relative to the Nomination
+     *  @param nominator is a specifier argument that is relative to the Nomination
      * @param nominee   is a specifier argument that is relative to the Nomination
      * @param award     an absolute Award to be given
      */
-    public void nominateTillReachNominatorAwardQuantityLimit(Nominator nominator, Nominee nominee, Award award) {
+    public void nominateTillReachNominatorAwardQuantityLimit(Nominator nominator, Person nominee, Award award) {
         int nominationsCount = 0;
         // for (int i = 0; i < nominator.getNumberOfGivenAwards(); i++) {
         for (int i = 0; nominator.isLimitReached(nominationsCount, nominator.getAwardQuantityLimit()); i++) {
@@ -99,7 +99,7 @@ public class NominationHelper {
      * @param award   an absolute Award to be given
      */
 
-    public void nominateTillReachNomineeAwardQuantityLimit(Nominator nominator, Nominee nominee, Award award) {
+    public void nominateTillReachNomineeAwardQuantityLimit(Nominator nominator, Person nominee, Award award) {
         int nominationsCount = 1;
 //        for (int i = 1; i <= nominee.getNumberOfRecievedAwards() + 1; i++) {
         for (int i = 1; nominee.isLimitReached(i, nominee.getAwardQuantityLimit()); i++) {
@@ -113,7 +113,7 @@ public class NominationHelper {
                 + nominationsCount + " Nomination " + " With limit CCC " + nominee.getAwardQuantityLimit());
     }
 
-    public void nominateTillReachNomineeAwardAmountLimit(Nominator nominator, Nominee nominee, Award award) {
+    public void nominateTillReachNomineeAwardAmountLimit(Nominator nominator, Person nominee, Award award) {
         int sum = award.getValue();
         int nominationsCount = 0;
         do {
