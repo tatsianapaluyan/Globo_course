@@ -62,27 +62,33 @@ public class NominationHelper {
      */
     public void nominateTillReachNominatorAwardQuantityLimit(Nominator nominator, Nominee nominee, Award award) {
         int nominationsCount = 0;
-       // for (int i = 0; i < nominator.getNumberOfGivenAwards(); i++) {
-       for (int i = 0; nominator.isLimitReached(nominationsCount, nominator.getAwardQuantityLimit()); i++) {
+        // for (int i = 0; i < nominator.getNumberOfGivenAwards(); i++) {
+        for (int i = 0; nominator.isLimitReached(nominationsCount, nominator.getAwardQuantityLimit()); i++) {
 //            nominate(nominee, award);
             nominationsCount++;
         }
-        System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
-                + nominationsCount + " Nomination" + " With limit AAA " + nominator.getAwardQuantityLimit());
+        if (nominationsCount > 1) {
+            System.out.println("Recipient " + nominee.getName() + " receives award value = " + award.getValue() + " by "
+                    + nominationsCount + " Nomination" + " With limit AAA " + nominator.getAwardQuantityLimit());
+        } else {
+            System.out.println("Recipient " + nominee.getName() + " does not receive award by " +  nominator.getName()
+                    + " Nominator AAA  ");
+        }
+
+
     }
 
     public void nominateTillReachNominatorAwardAmountLimit(Nominator nominator, Nominee nominee, Award award) {
         int sum = 0;
         int nominationsCount = 0;
-        double awardLimit = nominator.getMaxAwardValue();
-      //  while (sum + award.getValue() <= nominator.getNumberOfGivenAwards()) {
-        while (nominator.isLimitReached(sum+award.getValue(), awardLimit)){
+        //  while (sum + award.getValue() <= nominator.getNumberOfGivenAwards()) {
+        while (nominator.isLimitReached(sum + award.getValue(), nominator.getMaxAwardValue())) {
             sum += award.getValue();
 //            nominate(nominee, award);
             nominationsCount++;
         }
         System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
-                + nominationsCount + " Nomination" + " With limit BBB " + awardLimit);
+                + nominationsCount + " Nomination" + " With limit BBB " + nominator.getMaxAwardValue());
     }
 
     /**
@@ -96,7 +102,7 @@ public class NominationHelper {
     public void nominateTillReachNomineeAwardQuantityLimit(Nominator nominator, Nominee nominee, Award award) {
         int nominationsCount = 1;
 //        for (int i = 1; i <= nominee.getNumberOfRecievedAwards() + 1; i++) {
-        for (int i = 1; nominator.isLimitReached(i, nominator.getAwardQuantityLimit()); i++){
+        for (int i = 1; nominee.isLimitReached(i, nominee.getAwardQuantityLimit()); i++) {
             if (i <= nominee.getAwardQuantityLimit()) {
                 nominationsCount++;
             } else {
@@ -110,13 +116,12 @@ public class NominationHelper {
     public void nominateTillReachNomineeAwardAmountLimit(Nominator nominator, Nominee nominee, Award award) {
         int sum = award.getValue();
         int nominationsCount = 0;
-        double awardLimit = nominator.getMaxAwardValue();
         do {
 //            nominate(nominee, award);
             nominationsCount++;
         }
         //while ((sum += award.getValue()) <= nominee.getNumberOfRecievedAwards());
-        while (nominator.isLimitReached(sum += award.getValue(), awardLimit));
+        while (nominee.isLimitReached(sum += award.getValue(), nominee.getMaxAwardValue()));
         System.out.println("Recipient " + nominee.getName() + " receives award value =  " + award.getValue() + " by "
                 + nominationsCount + " Nomination " + " With limit DDD " + nominee.getMaxAwardValue());
     }

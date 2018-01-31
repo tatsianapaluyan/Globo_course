@@ -28,9 +28,8 @@ public class Nominator extends Person {
      */
     public Nominator(String name, int awardQuantityLimit, double maxAwardValue, int numberOfGivenAwards) {
         super(name, awardQuantityLimit, maxAwardValue);
-              this.numberOfGivenAwards = numberOfGivenAwards;
+        this.numberOfGivenAwards = numberOfGivenAwards;
     }
-
 
 
     @Override
@@ -42,14 +41,15 @@ public class Nominator extends Person {
         }
     }
 
-    public void getInfo() {
+    public boolean getInfo() {
         if (getName() == null) {
-            System.out.println("Expired");
+//            System.out.println("Expired");
+            return false;
         } else {
-            System.out.println("Active");
+//            System.out.println("Active");
+            return true;
         }
     }
-
 
 
     //override parent's method getName
@@ -60,7 +60,11 @@ public class Nominator extends Person {
 
     @Override
     public boolean isLimitReached(double currentValue, double limit) {
-        return currentValue <= limit;
+        if (getInfo()) {
+            return currentValue <= limit;
+        } else {
+            return false;
+        }
     }
 
 

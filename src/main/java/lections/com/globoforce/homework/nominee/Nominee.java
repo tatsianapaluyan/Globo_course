@@ -26,11 +26,13 @@ public class Nominee extends Person {
         }
     }
 
-    public void getInfo() {
+    public boolean getInfo() {
         if (getName() == null) {
             System.out.println("Expired");
+            return false;
         } else {
             System.out.println("Active");
+            return true;
         }
     }
 

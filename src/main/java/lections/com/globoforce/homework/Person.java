@@ -43,7 +43,7 @@ public abstract class Person implements OperationsWithLimit {
 
 
     //abstract method
-    public abstract void getInfo();
+    public abstract boolean getInfo();
 
     public String getName() {
         return name;
