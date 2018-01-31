@@ -13,10 +13,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
-        task2();
+//task 2 and 5 together in 2
+//        task2();
 //       task3();
 //        task4();
+        task5();
+
     }
 
 
@@ -37,12 +39,13 @@ public class Main {
 
         Nominator nominator = new Nominator("Liam", "EUR");
 
-        Nominee nominee3 = new Nominee("BOB", 5, 2000);
+        //Nominee nominee3 = new Nominee("BOB", 5, 2000);
         RecieveAward recieveAward = new RecieveAward();
 //        nominee.recieveAward(award);
 //        recieveAward.recieveAward(award);
 
-        Person person = new Person();
+        Person person = new Nominator("Bob", "USD");
+
         person.recieveAward(award);
         nominee.recieveAward(cash);
         nominator.recieveAward(noncash);
@@ -102,15 +105,17 @@ public class Main {
     private static void task4() {
         System.out.println("Task 4 start");
 
-        Nominator nominator1 = new Nominator("Jonathan", 5, 500);
+        Nominator nominator1 = new Nominator("Jonathan", 5, 2000, 0);
         Nominee nominee = new Nominee("Tanya");
         Nominee nominee1 = new Nominee("Yura");
         Nominee nominee2 = new Nominee("Pasha");
+        Nominee nominee4 = new Nominee(null);
+
         Award award = new Award(5, 200, "Cash");
         Award award1 = new Award(6, 300, "NonCash");
         Award award2 = new Award(7, 400, "Cash");
 
-        Nominee nominee3 = new Nominee("BOB", 5, 2000);
+        Nominee nominee3 = new Nominee("BOB", 5, 2000, 0);
 
         NominationHelper nominationHelper = new NominationHelper(nominator1);
         for (int i = 0; i < 6; i++) {
@@ -121,7 +126,7 @@ public class Main {
                     System.out.println();
                     break;
                 case 2:
-                    nominator1.setNominatorAwardQuantityLimit(0);
+                    nominator1.setNumberOfGivenAwards(0);
                     nominationHelper.nominate(nominator1, nominee2, award1);
                     System.out.println();
                     break;
@@ -133,7 +138,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("NOMINATION LIMIT for the Award Amount that Recipient can receive");
-                    nominee3.setNomineeAwardQuantityLimit(0);
+                    nominee3.setNumberOfRecievedAwards(0);
                     nominationHelper.nominate(nominee3, award1);
                     System.out.println();
                     break;
@@ -142,5 +147,29 @@ public class Main {
 
             }
         }
+    }
+
+
+    private static void task5() {
+        System.out.println("Task 5 start");
+
+        Nominator nominator1 = new Nominator("Jonathan", 5, 2000, 0);
+        Nominee nominee = new Nominee("Tanya");
+        Nominee nominee1 = new Nominee("Yura");
+        Nominee nominee2 = new Nominee("Pasha");
+        Nominee nominee4 = new Nominee(null);
+
+        Award award = new Award(5, 200, "Cash");
+        Award award1 = new Award(6, 300, "NonCash");
+        Award award2 = new Award(7, 400, "Cash");
+
+        Nominee nominee3 = new Nominee("BOB", 5, 2000, 0);
+        NominationHelper nominationHelper = new NominationHelper(nominator1);
+
+        nominationHelper.nominateTillReachNominatorAwardQuantityLimit(nominator1, nominee1, award2);
+        nominationHelper.nominateTillReachNominatorAwardAmountLimit(nominator1, nominee3, award);
+        nominationHelper.nominateTillReachNomineeAwardQuantityLimit(nominator1, nominee3, award);
+        nominationHelper.nominateTillReachNomineeAwardAmountLimit(nominator1, nominee3, award1);
+
     }
 }

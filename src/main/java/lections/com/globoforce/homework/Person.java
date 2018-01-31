@@ -1,19 +1,29 @@
 package lections.com.globoforce.homework;
 
 import lections.com.globoforce.homework.award.Award;
-import lections.com.globoforce.homework.nominator.Nominator;
 import lections.com.globoforce.homework.nominee.Nominee;
-import lections.com.globoforce.homework.util.RecieveAward;
+import lections.com.globoforce.homework.util.OperationsWithLimit;
 
-public class Person {
+public abstract class Person implements OperationsWithLimit {
 
     private String name;
     private String lastName;
+    private int awardQuantityLimit;
+    private double maxAwardValue;
+
+
+    public Person(String name, int awardQuantityLimit, double maxAwardValue) {
+        this.name = name;
+        this.awardQuantityLimit = awardQuantityLimit;
+        this.maxAwardValue = maxAwardValue;
+    }
 
     public Person(String name) {
         this.name = name;
     }
 
+
+    //Overloading of Person constructor with additional parameter
     public Person(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
@@ -23,10 +33,17 @@ public class Person {
         System.out.println("User recieves Award with value " + award.getValue());
     }
 
+    //Overloading of recieveAward Method with additional parameter
     public void recieveAward(Award award, Nominee nominee) {
-        System.out.println(("User recieves Award with value " + award.getValue()+nominee.getName() + getLastName()));
+        System.out.println(("User recieves Award with value " + award.getValue() + nominee.getName() + getLastName()));
     }
 
+
+    public abstract boolean isLimitReached(double currentValue, double limit);
+
+
+    //abstract method
+    public abstract void getInfo();
 
     public String getName() {
         return name;
@@ -44,13 +61,28 @@ public class Person {
         this.lastName = lastName;
     }
 
-    //override defaul constructor and call from it a parametrized, Person object s created with th name "No name"
+    public int getAwardQuantityLimit() {
+        return awardQuantityLimit;
+    }
+
+    public void setAwardQuantityLimit(int awardQuantityLimit) {
+        awardQuantityLimit = awardQuantityLimit;
+    }
+
+    public double getMaxAwardValue() {
+        return maxAwardValue;
+    }
+
+    public void setMaxAwardValue(double maxAwardValue) {
+        maxAwardValue = maxAwardValue;
+    }
+
+
+    //Overload defaul constructor and call from it a parametrized, Person object s created with the name "No name"
     public Person() {
         this("No name");
 
         System.out.println("Person object created using default constructor");
     }
-
-
 
 }

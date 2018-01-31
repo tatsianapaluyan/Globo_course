@@ -5,10 +5,9 @@ import lections.com.globoforce.homework.Person;
 import lections.com.globoforce.homework.award.Award;
 
 public class Nominator extends Person {
-    //    private String name;
+
     private String currency = "EUR";
-    private int nominatorAwardQuantityLimit;
-    private double nominatorMaxAwardValue;
+    private int numberOfGivenAwards;
 
     /**
      * @param name     - Recipient's name
@@ -19,21 +18,20 @@ public class Nominator extends Person {
 
 
         //this(name,5,2);
-
         this.currency = currency;
     }
 
-
     /**
-     * @param name                        - Nominator's name
-     * @param nominatorAwardQuantityLimit - № of Nominations that Nominator can give
-     * @param nominatorMaxAwardValue      - max value of the Award that Nominator can give
+     * @param name               - Nominator's name
+     * @param awardQuantityLimit - № of Nominations that Nominator can give
+     * @param maxAwardValue      - max value of the Award that Nominator can give
      */
-    public Nominator(String name, int nominatorAwardQuantityLimit, double nominatorMaxAwardValue) {
-        super(name);
-        this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
-        this.nominatorMaxAwardValue = nominatorMaxAwardValue;
+    public Nominator(String name, int awardQuantityLimit, double maxAwardValue, int numberOfGivenAwards) {
+        super(name, awardQuantityLimit, maxAwardValue);
+              this.numberOfGivenAwards = numberOfGivenAwards;
     }
+
+
 
     @Override
     public void recieveAward(Award award) {
@@ -44,21 +42,34 @@ public class Nominator extends Person {
         }
     }
 
-
-    public int getNominatorAwardQuantityLimit() {
-        return nominatorAwardQuantityLimit;
+    public void getInfo() {
+        if (getName() == null) {
+            System.out.println("Expired");
+        } else {
+            System.out.println("Active");
+        }
     }
 
-    public void setNominatorAwardQuantityLimit(int nominatorAwardQuantityLimit) {
-        this.nominatorAwardQuantityLimit = nominatorAwardQuantityLimit;
+
+
+    //override parent's method getName
+    @Override
+    public String getName() {
+        return super.getName();
     }
 
-    public double getNominatorMaxAwardValue() {
-        return nominatorMaxAwardValue;
+    @Override
+    public boolean isLimitReached(double currentValue, double limit) {
+        return currentValue <= limit;
     }
 
-    public void setNominatorMaxAwardValue(double nominatorMaxAwardValue) {
-        this.nominatorMaxAwardValue = nominatorMaxAwardValue;
+
+    public int getNumberOfGivenAwards() {
+        return numberOfGivenAwards;
+    }
+
+    public void setNumberOfGivenAwards(int numberOfGivenAwards) {
+        this.numberOfGivenAwards = numberOfGivenAwards;
     }
 
     public String getCurrency() {
@@ -69,11 +80,6 @@ public class Nominator extends Person {
         this.currency = currency;
     }
 
-    //override parent's method getName
-    @Override
-    public String getName() {
-        return super.getName();
-    }
 }
 
 
