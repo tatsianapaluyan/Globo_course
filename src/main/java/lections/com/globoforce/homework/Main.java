@@ -8,7 +8,9 @@ import lections.com.globoforce.homework.util.NominationHelper;
 import lections.com.globoforce.homework.util.RecieveAward;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -152,8 +154,8 @@ public class Main {
     private static void task5() {
         System.out.println("Task 5 start");
 
-        Nominator nominator1 = new Nominator(null, 5, 2000, 0);
-        Nominator nominator2 = new Nominator("Jonathan", 4, 700, 0);
+        Person nominator1 = new Nominator(null, 5, 2000, 0);
+        Person nominator2 = new Nominator("Jonathan", 4, 700, 0);
 
         Person nominee1 = new Nominee("Yura");
         Nominee nominee = new Nominee("Tanya");
@@ -163,7 +165,7 @@ public class Main {
         Award award1 = new Award(6, 300, "NonCash");
         Award award2 = new Award(7, 400, "Cash");
 
-        NominationHelper nominationHelper = new NominationHelper(nominator1);
+        NominationHelper nominationHelper = new NominationHelper();
 
         nominationHelper.nominateTillReachNominatorAwardQuantityLimit(nominator1, nominee1, award2);
         nominationHelper.nominateTillReachNominatorAwardQuantityLimit(nominator2, nominee1, award2);
@@ -172,4 +174,19 @@ public class Main {
         nominationHelper.nominateTillReachNomineeAwardAmountLimit(nominator1, nominee3, award1);
 
     }
+
+    private static void task6() {
+        System.out.println("Task 6 start");
+
+//        AwardRecalculation awardRecalculation = new AwardRecalculation();
+        Map<Integer, String> award = new HashMap<Integer, String>();
+        award.put(1, "Call Out1");
+        award.put(2, "Call Out2");
+        award.put(3, "Call Out3");
+        award.put(4, "Call Out4");
+        award.put(5, "Call Out5");
+        award.put(6, "Call Out6");
+        award.put(7, "Call Out7");
+    }
+
 }

@@ -1,5 +1,7 @@
 package lections.com.globoforce.homework.award;
 
+import java.util.List;
+
 public class Award {
 
 
@@ -15,6 +17,7 @@ public class Award {
     private final int value;
     private double soli;
     private String type;
+    private int id;
 
     /**
      * @param soli  - soli value, taking into account for Nomination with Soli
@@ -26,6 +29,12 @@ public class Award {
         this.type = type;
     }
 
+    public Award(int value, String type, int id) {
+        this.value = value;
+        this.type = type;
+        this.id = id;
+    }
+
     /**
      * @param value - value of the Award
      */
@@ -34,6 +43,13 @@ public class Award {
         System.out.println("constructor initialisation " + this.value);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getType() {
         return type;

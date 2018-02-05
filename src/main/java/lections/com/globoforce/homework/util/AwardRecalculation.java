@@ -2,6 +2,7 @@ package lections.com.globoforce.homework.util;
 
 import lections.com.globoforce.homework.award.Award;
 
+import java.util.List;
 import java.util.Random;
 
 public class AwardRecalculation {
@@ -30,4 +31,15 @@ public class AwardRecalculation {
         System.out.println(result);
         return result;
     }
+
+
+    public void printAwards(List<Award> awards, String type) {
+        System.out.println("Awards with the type 'Test' ");
+
+
+    }
+
+
+
+
 }
