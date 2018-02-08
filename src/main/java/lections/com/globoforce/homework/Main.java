@@ -7,19 +7,18 @@ import lections.com.globoforce.homework.util.AwardRecalculation;
 import lections.com.globoforce.homework.util.NominationHelper;
 import lections.com.globoforce.homework.util.RecieveAward;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 //task 2 and 5 together in 2
 //        task2();
-//       task3();
+//        task3();
 //        task4();
         task5();
+//        task6();
+//        task7();
 
     }
 
@@ -51,6 +50,7 @@ public class Main {
         person.recieveAward(award);
         nominee.recieveAward(cash);
         nominator.recieveAward(noncash);
+        person.recieveAward(award, nominee1);
 
 
         List<Nominee> recipients = new ArrayList<Nominee>();
@@ -107,7 +107,7 @@ public class Main {
     private static void task4() {
         System.out.println("Task 4 start");
 
-        Nominator nominator1 = new Nominator("Jonathan", 5, 2000, 0);
+        Nominator nominator1 = new Nominator("Jonathan", 5, 2000, 0, true);
         Nominee nominee = new Nominee("Tanya");
         Nominee nominee2 = new Nominee("Pasha");
 
@@ -154,12 +154,16 @@ public class Main {
     private static void task5() {
         System.out.println("Task 5 start");
 
-        Person nominator1 = new Nominator(null, 5, 2000, 0);
-        Person nominator2 = new Nominator("Jonathan", 4, 700, 0);
+        Person nominator1 = new Nominator(null, 5, 2000, 0, true);
+        Person nominator2 = new Nominator("Jonathan", 4, 700, 0, true);
+        Person nominator3 = new Nominator(null, 5, 2000, 0, false);
+        Person nominator4 = new Nominator("Jonathan", 0, 0, 0, true);
 
         Person nominee1 = new Nominee("Yura");
         Nominee nominee = new Nominee("Tanya");
         Person nominee3 = new Nominee("BOB", 5, 2100, 0);
+        Person nominee4 = new Nominee("Kolya", 5, 2100, 0);
+        Person nominee5 = new Nominee("Mike", 0, 0, 0);
 
         Award award = new Award(5, 200, "Cash");
         Award award1 = new Award(6, 300, "NonCash");
@@ -173,20 +177,114 @@ public class Main {
         nominationHelper.nominateTillReachNomineeAwardQuantityLimit(nominator1, nominee3, award);
         nominationHelper.nominateTillReachNomineeAwardAmountLimit(nominator1, nominee3, award1);
 
+        // Polymorphism
+
+        nominationHelper.nominate(nominator3, nominee1, award);
+        nominationHelper.nominate(nominator4, nominee3, award1);
+        nominationHelper.nominate(nominator4, nominee4, award1);
+        nominationHelper.nominate(nominator4, nominee5, award1);
+
     }
+
+
 
     private static void task6() {
         System.out.println("Task 6 start");
 
-//        AwardRecalculation awardRecalculation = new AwardRecalculation();
-        Map<Integer, String> award = new HashMap<Integer, String>();
-        award.put(1, "Call Out1");
-        award.put(2, "Call Out2");
-        award.put(3, "Call Out3");
-        award.put(4, "Call Out4");
-        award.put(5, "Call Out5");
-        award.put(6, "Call Out6");
-        award.put(7, "Call Out7");
+//        Award award = new Award(1, "Thank you", 0);
+//        Award award1 = new Award(1, "Thank you", 0);
+//        Award award2 = new Award(1, "Thank you", 0);
+//        Award award3 = new Award(1, "Thank you", 0);
+//        Award award4 = new Award(1, "Thank you", 0);
+//        Award award5 = new Award(1, "Thank you", 0);
+//        Award award6 = new Award(1, "Thank you", 0);
+//        Award award7 = new Award(1, "Thank you", 0);
+//        Award award8 = new Award(1, "Thank you", 0);
+//        Award award9 = new Award(1, "Thank you", 0);
+//        Award award10 = new Award(1, "Thank you", 0);
+//        Award award11 = new Award(1, "Thank you", 0);
+//        Award award12 = new Award(1, "Thank you", 0);
+//        Award award13 = new Award(1, "Thank you", 0);
+//        Award award14 = new Award(1, "Thank you", 0);
+//        Award award15 = new Award(1, "Thank you", 0);
+        //Creating Array List of Awards
+
+
+        List<Award> awardArrayList = new ArrayList<Award>();
+        Random random = new Random();
+
+        String[] awardType = new String[]{"Thank you", "Call Out", "Wisper", "Woohoo", "Surprise"};
+
+        int id = 1;
+        int currentValue = 0;
+        int awardTypes = awardType.length;
+
+        for (int i = 0; i < 15; i++) {
+            Award award = new Award(i, id, awardType[random.nextInt(awardTypes)], currentValue);
+            awardArrayList.add(award);
+            currentValue += 100;
+            id++;
+        }
+        AwardRecalculation awardRecalculation = new AwardRecalculation();
+        awardRecalculation.printAwards(awardArrayList, "Thank you");
+        awardRecalculation.printAwards(awardArrayList, "Call Out");
+        awardRecalculation.printAwards(awardArrayList, "Wisper");
+        awardRecalculation.printAwards(awardArrayList, "Woohoo");
+        awardRecalculation.printAwards(awardArrayList, "Surprise");
+
+        Set<String> set = new HashSet<String>();
+        for (Award award  : awardArrayList) {
+            set.add(award.getType());
+        }
+
+        Iterator<String> itr = set.iterator();
+        while(itr.hasNext()){
+            System.out.println(itr.next());
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        awardArrayList.add(award);
+//        awardArrayList.add(award1);
+//        awardArrayList.add(award2);
+//        awardArrayList.add(award3);
+//        awardArrayList.add(award4);
+//        awardArrayList.add(award5);
+//        awardArrayList.add(award6);
+//        awardArrayList.add(award7);
+//        awardArrayList.add(award8);
+//        awardArrayList.add(award9);
+//        awardArrayList.add(award10);
+
+
     }
 
+    private static void task7() {
+        System.out.println("Task 7 start");
+
+        String s1 = "Str";
+        String s2 = new String("Str");
+        String s3 = "Str";
+
+
+        System.out.println(s1 == s2);
+
+        System.out.println(s2 == s3);
+
+        System.out.println(s1.equals(s2));
+
+    }
 }

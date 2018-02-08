@@ -2,7 +2,9 @@ package lections.com.globoforce.homework.util;
 
 import lections.com.globoforce.homework.award.Award;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class AwardRecalculation {
@@ -32,14 +34,26 @@ public class AwardRecalculation {
         return result;
     }
 
-
     public void printAwards(List<Award> awards, String type) {
-        System.out.println("Awards with the type 'Test' ");
+        System.out.println("Print all Awards with the type " + type + ": ");
+        for (Award award: awards) {
+            if (award.getType().equals(type)) {
+                System.out.println("Award id " + award.getId() + " with value: " + award.getValue() + " and type " + award.getType());
+            }
+        }
+
+//        Map<Integer, String> award = new HashMap<Integer, String>();
+//        for (Map.Entry<Integer, String> entry : award.entrySet()) {
+//            if (entry.getValue().equals(type))
+//                System.out.println(entry.getKey());
+//            else {
+//                System.out.println(entry.getValue());
+//            }
+//
+//        }
+    }
 
 
     }
 
 
-
-
-}

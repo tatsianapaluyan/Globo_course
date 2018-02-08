@@ -10,12 +10,14 @@ public abstract class Person implements OperationsWithLimit {
     private String lastName;
     private int awardQuantityLimit;
     private double maxAwardValue;
+    private boolean ableNominate;
 
 
-    public Person(String name, int awardQuantityLimit, double maxAwardValue) {
+    public Person(String name, int awardQuantityLimit, double maxAwardValue, boolean ableNominate) {
         this.name = name;
         this.awardQuantityLimit = awardQuantityLimit;
         this.maxAwardValue = maxAwardValue;
+        this.ableNominate = ableNominate;
     }
 
     public Person(String name) {
@@ -77,6 +79,13 @@ public abstract class Person implements OperationsWithLimit {
         maxAwardValue = maxAwardValue;
     }
 
+    public boolean isAbleNominate() {
+        return ableNominate;
+    }
+
+    public void setAbleNominate(boolean ableNominate) {
+        this.ableNominate = ableNominate;
+    }
 
     //Overload defaul constructor and call from it a parametrized, Person object s created with the name "No name"
     public Person() {

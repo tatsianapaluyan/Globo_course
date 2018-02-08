@@ -26,8 +26,8 @@ public class Nominator extends Person {
      * @param awardQuantityLimit - № of Nominations that Nominator can give
      * @param maxAwardValue      - max value of the Award that Nominator can give
      */
-    public Nominator(String name, int awardQuantityLimit, double maxAwardValue, int numberOfGivenAwards) {
-        super(name, awardQuantityLimit, maxAwardValue);
+    public Nominator(String name, int awardQuantityLimit, double maxAwardValue, int numberOfGivenAwards, boolean nominate) {
+        super(name, awardQuantityLimit, maxAwardValue, nominate);
         this.numberOfGivenAwards = numberOfGivenAwards;
     }
 
@@ -50,7 +50,6 @@ public class Nominator extends Person {
             return true;
         }
     }
-
 
     //override parent's method getName
     @Override

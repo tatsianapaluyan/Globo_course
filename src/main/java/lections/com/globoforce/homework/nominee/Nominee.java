@@ -7,13 +7,12 @@ public class Nominee extends Person {
 
     private int numberOfRecievedAwards;
 
-
     public Nominee(String name) {
         super(name);
     }
 
     public Nominee(String name, int awardQuantityLimit, double maxAwardValue, int numberOfRecievedAwards) {
-        super(name, awardQuantityLimit, maxAwardValue);
+        super(name, awardQuantityLimit, maxAwardValue,false);
         this.numberOfRecievedAwards = numberOfRecievedAwards;
     }
 
